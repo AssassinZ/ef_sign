@@ -24,7 +24,7 @@ def load_config_to_env():
                     os.environ[env_key] = value
 
 # 加载配置到环境变量
-load_config_to_env()
+#load_config_to_env()
 
 __available_pusher = {
     'serverchan3': push_serverchan3,
