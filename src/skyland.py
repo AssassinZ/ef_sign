@@ -267,6 +267,9 @@ def do_sign(cred_resp):
         app_code = i['appCode']
         msg = None
         if app_code == 'arknights':
+            #skip明日方舟签到
+            continue
+            #
             msg = sign_for_arknights(i)
         elif app_code == 'endfield':
             msg = sign_for_endfield(i)
