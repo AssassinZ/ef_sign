@@ -7,10 +7,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    env:
+        TZ: Asia/Shanghai
+        # 强制使用 Node.js 24 运行官方 Actions 插件，以消除 Node.js 20 弃用警告
+        FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+        
     steps:
       - uses: actions/checkout@v4
       - name: Set up Python 3.9
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v4
         with:
           python-version: 3.9
       - name: Install dependencies
@@ -29,8 +35,5 @@ jobs:
           SC3_UID: ${{ secrets.SC3_UID }}
           EXIT_WHEN_FAIL: ${{ vars.EXIT_WHEN_FAIL }}
           QMSG_TOKEN: ${{ secrets.QMSG_TOKEN }}
-          TZ: Asia/Shanghai
-          # 强制使用 Node.js 24 运行官方 Actions 插件，以消除 Node.js 20 弃用警告
-          FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
         run: |
           python src/main.py
