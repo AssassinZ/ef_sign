@@ -1,0 +1,20 @@
+name: Keepalive Workflow
+on:
+  schedule:
+    - cron: "0 0 * * *" # UTC时间，每天0点执行
+  workflow_dispatch: # 支持手动触发
+
+jobs:
+  keepalive:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      actions: write
+    steps:
+      - name: Keepalive
+        uses: gautamkrishnar/keepalive-workflow@v2
+        with:
+          # 距离上次提交超过45天才执行刷新，避免频繁操作
+          days_threshold: 45
+          # api模式：不生成commit；设为false则使用空commit
+          use_api: true
