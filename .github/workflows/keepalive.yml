@@ -12,7 +12,7 @@ jobs:
       actions: write
     steps:
       - name: Keepalive
-        uses: gautamkrishnar/keepalive-workflow@v2
+        uses: efrecon/gh-action-keepalive@main
         with:
           # 距离上次提交超过45天才执行刷新，避免频繁操作
           # days_threshold: 45
