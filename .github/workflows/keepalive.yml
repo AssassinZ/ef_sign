@@ -11,6 +11,5 @@ jobs:
       contents: write
       actions: write
     steps:
-      - uses: actions/checkout@v7
       - name: Keepalive
         uses: efrecon/gh-action-keepalive@main
