@@ -13,5 +13,5 @@ jobs:
     steps:
       - name: Keepalive
         uses: efrecon/gh-action-keepalive@main
-        with:
-          timeout: 1  # 距离上次提交超过1秒就触发，仅用于测试
+        # with:
+        #   timeout: 1  # 距离上次提交超过1秒就触发，仅用于测试
